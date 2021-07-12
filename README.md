@@ -78,3 +78,8 @@ INFO: Elapsed time: 9.242s, Critical Path: 8.81s
 INFO: 2 processes: 2 internal.
 FAILED: Build did NOT complete successfully
 ```
+
+## Solution
+
+Iterating like `["./$(execpath %s)" % e for e in glob([:js_entry_point])]` will create the path `"./bazel-out/darwin-fastbuild/bin/js/foo.js ./bazel-out/darwin-fastbuild/bin/js/bar.js"`, which Webpack wants.
+https://github.com/gecko655/reproduce/commit/ef631cc0e937608fd3117126c351e028c548305c
