@@ -1,8 +1,8 @@
 const path = require('path');
 const glob = require('glob');
 
-const entries = {}
-glob.sync("./js/*.js").map(function(fileName) {
+const entries = {};
+glob.sync(path.resolve(__dirname, "./js/*.js")).map(function(fileName) {
     entries[path.basename(fileName, '.js')] = fileName;
 });
 
